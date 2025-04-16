@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Buffer Overflow Detector</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/theme/monokai.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/clike/clike.min.js"></script>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body class="bg-gradient-to-br from-purple-900 to-blue-900 min-h-screen text-white">
+    <div class="container mx-auto px-4 py-8">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-violet-500">
+                AI Buffer Overflow Detector
+            </h1>
+            <p class="text-xl text-gray-300">Analyze your C/C++ code for buffer overflow vulnerabilities</p>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Code Editor Section -->
+            <div class="bg-gray-800 rounded-lg p-4 shadow-xl">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-semibold">Code Editor</h2>
+                    <div class="space-x-4">
+                        <button id="uploadBtn" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded">
+                            Upload File
+                        </button>
+                        <button id="analyzeBtn" class="bg-green-500 hover:bg-green-600 px-4 py-2 rounded">
+                            Analyze Code
+                        </button>
+                    </div>
+                </div>
+                <textarea id="codeEditor" class="w-full h-96 bg-gray-900 text-white p-4 rounded"></textarea>
+            </div>
+
+            <!-- Results Section -->
+            <div class="bg-gray-800 rounded-lg p-4 shadow-xl">
+                <h2 class="text-2xl font-semibold mb-4">Analysis Results</h2>
+                <div id="results" class="space-y-4">
+                    <div class="bg-gray-700 rounded p-4">
+                        <h3 class="text-xl mb-2">Risk Level</h3>
+                        <div id="riskLevel" class="text-3xl font-bold text-center">-</div>
+                    </div>
+                    <div class="bg-gray-700 rounded p-4">
+                        <h3 class="text-xl mb-2">Risk Score</h3>
+                        <div id="riskScore" class="text-3xl font-bold text-center">-</div>
+                    </div>
+                    <div class="bg-gray-700 rounded p-4">
+                        <h3 class="text-xl mb-2">Vulnerabilities Found</h3>
+                        <div id="vulnerabilities" class="space-y-2">
+                            <p class="text-gray-300">No analysis performed yet</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
